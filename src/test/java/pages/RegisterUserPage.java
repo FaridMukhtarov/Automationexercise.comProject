@@ -9,7 +9,6 @@ import utilitise.ReusableMethods;
 
 public class RegisterUserPage extends ReusableMethods {
     WebDriver driver;
-
    public RegisterUserPage(){
         this.driver = Driver.getDriver();
        PageFactory.initElements(driver, this);
@@ -51,6 +50,42 @@ public class RegisterUserPage extends ReusableMethods {
     private WebElement accountInformationText;
     public void accountInformationTextVisible(){
         isDisplayed(accountInformationText);
+    }
+
+    @FindBy(id = "id_gender1")
+    private WebElement titleSelect;
+    public void setTitleSelect(){
+        isEnabled(titleSelect);
+    }
+
+    @FindBy(id = "password")
+    private WebElement password;
+    public void setPassword(String value){
+        sendKeysFunction(password, value);
+    }
+
+    @FindBy(id = "days")
+    private WebElement dayElement;
+    @FindBy(id = "months")
+    private WebElement monthElement;
+    @FindBy(id = "years")
+    private WebElement yearElement;
+    public void selectData(String day, String month, String year){
+        selectElementFromDropDown(dayElement,day);
+        selectElementFromDropDown(monthElement,month);
+        selectElementFromDropDown(yearElement,year);
+    }
+
+    @FindBy(id = "newsletter")
+    private WebElement checkBoxNewsletter;
+    public void selectCheckBoxNewsletter(){
+        isEnabled(checkBoxNewsletter);
+    }
+
+    @FindBy(id = "optin")
+    private WebElement checkBoxPartners;
+    public void selectCheckPartners(){
+        isEnabled(checkBoxNewsletter);
     }
 
 }
