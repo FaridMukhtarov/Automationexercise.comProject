@@ -10,8 +10,8 @@ Feature: Register User and Delete account
     And Click Signup button
     And Verify that ENTER ACCOUNT INFORMATION is visible
     And Fill details: Title, Name, Email, Password, Date of birth
-    And Select checkbox 'Sign up for our newsletter
-    And Select checkbox 'Receive special offers from our partners
+    And Select checkbox Sign up for our newsletter
+    And Select checkbox Receive special offers from our partners
     And First name, Last name, Company, Addresss, Country, State, City, Zipcode, Mobile Number
     And Click 'Create Account button
     And Verify that ACCOUNT CREATED is visible

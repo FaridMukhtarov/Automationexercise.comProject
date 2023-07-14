@@ -88,4 +88,83 @@ public class RegisterUserPage extends ReusableMethods {
         isEnabled(checkBoxNewsletter);
     }
 
+    @FindBy(id = "first_name")
+    private WebElement firstNameElement;
+    @FindBy(id = "last_name")
+    private WebElement lastNameElement;
+    @FindBy(id = "company")
+    private WebElement companyElement;
+    @FindBy(id = "address1")
+    private WebElement addressOneElement;
+    @FindBy(id = "address2")
+    private WebElement addressTowElement;
+    @FindBy(id = "country")
+    private WebElement countryElement;
+    @FindBy(id = "state")
+    private WebElement stateElement;
+    @FindBy(id = "city")
+    private WebElement cityElement;
+    @FindBy(id = "zipcode")
+    private WebElement zipcodeElement;
+    @FindBy(id = "mobile_number")
+    private WebElement mobileNumberElement;
+    @FindBy(xpath = "//button[.='Create Account']")
+    private WebElement createButton;
+
+
+    public void personalInfoPartOne (String firstName, String lastName, String company, String addressLineOne, String addressLineTwo){
+        sendKeysFunction(firstNameElement, firstName);
+        sendKeysFunction(lastNameElement, lastName);
+        sendKeysFunction(companyElement, company);
+        sendKeysFunction(addressOneElement, addressLineOne);
+        sendKeysFunction(addressTowElement, addressLineTwo);
+    }
+    public void personalInfoPartTow (String country, String state, String city, String zipcode, String mobileNumber){
+        sendKeysFunction(companyElement, country);
+        sendKeysFunction(stateElement, state);
+        sendKeysFunction(cityElement, city);
+        sendKeysFunction(zipcodeElement,zipcode);
+        sendKeysFunction(mobileNumberElement, mobileNumber);
+    }
+    public void clickCreateButton (){
+        clickFunction(createButton);
+    }
+
+    @FindBy(xpath = "//b[.='Account Created!']")
+    private WebElement accountCreatedElement;
+    public void accountCreatedTextIsVisibly(){
+        isDisplayed(accountCreatedElement);
+    }
+
+    @FindBy(linkText = "Continue")
+    private WebElement continueButtonElement;
+    @FindBy(id = "dismiss-button")
+    private WebElement dismissButton;
+    public void continueButton(){
+        clickFunction(continueButtonElement);
+        driver.switchTo().frame("google_esf");
+        clickFunction(dismissButton);
+    }
+
+    @FindBy(xpath = "(//ul/li/a)[10]")
+    private WebElement userNameGet;
+    public void userNameVisible(){
+        isDisplayed(userNameGet);
+    }
+
+    @FindBy(xpath = "(//ul/li/a)[5]")
+    private WebElement deleteAccount;
+    public void clickDeleteAccountButton(){
+        clickFunction(deleteAccount);
+    }
+
+    @FindBy(xpath = "//b[.='Account Deleted!']")
+    private WebElement deleteAccountTitle;
+    public void getDeleteAccountTitle(){
+        isDisplayed(deleteAccountTitle);
+    }
+
+
+
+
 }
